@@ -1,0 +1,39 @@
+<div class="profile-wp">
+    <form action="" [formGroup]="profileForm">
+        <div class="form-controls-wp">
+          <div class="form-group-control">
+            <div class="label">First Name</div>
+            <input type="text" formControlName="first_name" />
+            <div class="error-container"></div>
+          </div>
+      
+          <div class="form-group-control">
+            <div class="label">Second Name</div>
+            <input type="text" formControlName="second_name" />
+            <div class="error-container"></div>
+          </div>
+        </div>
+      
+        <div class="form-controls-wp">
+          <div class="form-group-control">
+            <div class="label">Date of Birthday</div>
+            <input type="text" formControlName="date_of_birthday" />
+            <div class="error-container"></div>
+          </div>
+        </div>
+      
+        <div class="phone-numbers-wp" formArrayName="phones">
+          <div class="label">Phone Number</div>
+          <ng-container
+            *ngFor="let phone of getPhoneNumberControls()['controls']; let i = index"
+          >
+            <div class="form-group-control">
+              <input type="text" formControlName="{{ i }}" />
+              <div class="error-container"></div>
+            </div>
+          </ng-container>
+        </div>
+      </form>
+</div>
+
+
